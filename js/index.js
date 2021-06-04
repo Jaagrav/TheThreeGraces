@@ -29,21 +29,17 @@ document.querySelectorAll('.header .link.clickable').forEach(item => {
 })
 
 const handleResize = (e) => {
-    if(window.screen.width * 0.06 > 50 && window.screen.width * 0.06 < 95){
+    if(window.innerWidth * 0.06 > 50 && window.innerWidth * 0.06 < 95){
         gsap.to(".h5", {
             duration: 0,
-            fontSize: window.screen.width * 0.02
+            fontSize: window.innerWidth * 0.02
         });
         gsap.to(".h1", {
             duration: 0,
-            fontSize: window.screen.width * 0.06
+            fontSize: window.innerWidth * 0.06
         });
-        gsap.to(".tab-data", {
-            duration: 0,
-            height: window.screen.width * 0.88,
-        })
     }
-    else if (window.screen.width * 0.06 < 50){
+    else if (window.innerWidth * 0.06 < 50){
         gsap.to(".h5", {
             duration: 0,
             fontSize: 17
@@ -53,7 +49,7 @@ const handleResize = (e) => {
             fontSize: 50
         });
     }
-    else if (window.screen.width * 0.06 > 95){
+    else if (window.innerWidth * 0.06 > 95){
         gsap.to(".h5", {
             duration: 0,
             fontSize: 50

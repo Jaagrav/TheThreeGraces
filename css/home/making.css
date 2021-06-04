@@ -16,7 +16,7 @@
     height: 100%;
     width: 100%;
     position: relative;
-    background: linear-gradient(-90deg, #16171a 40%, transparent 53%);
+    background: linear-gradient(-90deg, #16171a 50%, transparent 65%);
     right: 0;
     padding-top: 8pc;
     padding-bottom: 8pc;
@@ -51,7 +51,7 @@
     .making-section .information {
         width: 100%;
         background: #000;
-        padding: 16px;
+        padding: 10pc 16px;
         position: unset;
         display: block;
     }

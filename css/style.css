@@ -111,3 +111,10 @@ canvas
 scrollbar .scrollbar-track {
     display: none;
 }
+
+
+@media (max-width: 600px) {
+    .scrollbar-track {
+        display: none !important;
+    }
+}

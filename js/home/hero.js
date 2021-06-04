@@ -32,6 +32,7 @@ class Home_Hero_Section {
         
         window.addEventListener('mousemove', e => this.clientMove(e, this.camera))
         window.addEventListener('touchmove', e => this.clientMove(e, this.camera))
+        window.addEventListener('orientationchange', this.handleMobileOrientation)
 
         /**
          * Camera
@@ -145,7 +146,7 @@ class Home_Hero_Section {
         gsap.to(this.pointLight.position, {
             // duration: 3,
             x: 0,
-            y: 4
+            y: 4.7
         });
 
         gsap.to(this.pointLight, {
@@ -158,4 +159,9 @@ class Home_Hero_Section {
             y: 0
         });
     }
+
+    handleMobileOrientation(e) {
+        console.log(e);
+    }
+
 }
