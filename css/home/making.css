@@ -1,22 +1,27 @@
 .making-section {
     position: relative;
-    height: 84vh !important;
+    height: fit-content !important;
 }
 
 .making-section .bg {
     height: 100%;
     position: absolute;
     left: 0;top: 0;
+    max-width: 100%;
 }
 
 .making-section .information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     height: 100%;
-    width: 60%;
-    position: absolute;
-    background: linear-gradient(-90deg, #16171a 80%, transparent 100%);
+    width: 100%;
+    position: relative;
+    background: linear-gradient(-90deg, #16171a 40%, transparent 53%);
     right: 0;
-    padding-top: 14pc;
+    padding-top: 8pc;
+    padding-bottom: 8pc;
     padding-left: 14pc;
+    max-width: unset;
 }
 
 .making-section .the-making {
@@ -36,4 +41,18 @@
 .making-section .caption {
     max-width: 34pc;
 
+}
+
+
+@media (max-width: 600px) {
+    .making-section .bg {
+        display: none;
+    }
+    .making-section .information {
+        width: 100%;
+        background: #000;
+        padding: 16px;
+        position: unset;
+        display: block;
+    }
 }

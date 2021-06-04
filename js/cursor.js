@@ -54,10 +54,23 @@ class Cursor {
             }
             else normalizeCursor();
         }
+
+        const handleResize = (e) => {
+            if(window.screen.width < 600) {
+                document.querySelector(".cursor-dot").style.display = "none";
+                document.querySelector(".cursor-dit").style.display = "none";
+            }
+            else {
+                document.querySelector(".cursor-dot").style.display = "block";
+                document.querySelector(".cursor-dit").style.display = "block";
+            }
+        }
         
+        handleResize();
         window.addEventListener("mousemove", updateCursor);
         window.addEventListener("mouseup", normalizeCursor);
         window.addEventListener("mousedown", downCursor);
+        window.addEventListener("resize", handleResize);
 
         document.querySelectorAll(".header .link.clickable").forEach(item => {
             item.addEventListener("mouseenter", e => {

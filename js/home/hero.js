@@ -67,6 +67,7 @@ class Home_Hero_Section {
 
 
 
+        // this.handleGracesResize();
         window.addEventListener('resize', () =>
         {
             // Update sizes
@@ -80,6 +81,8 @@ class Home_Hero_Section {
             // Update renderer
             this.renderer.setSize(this.sizes.width, this.sizes.height)
             this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+            this.handleGracesResize();
         })
 
 
@@ -111,21 +114,23 @@ class Home_Hero_Section {
         var distance = -camera.position.z / dir.z;
         var pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
-        gsap.to(this.pointLight.position, {
-            // duration: 3,
-            x: Math.abs(pos.x) < 1.6 ? pos.x : pos.x < 0 ? -1.6 : 1.6,
-            y: pos.y > 5.4 ? 5.4 : pos.y < 2.9 ? 2.9 : pos.y
-        })
-
-        gsap.to(this.pointLight, {
-            // duration: 3,
-            intensity: ((1 - (Math.abs(this.pointLight.position.x) / 1.6)) * 1.5) + 0.5
-        })
-        
-        gsap.to(this.threegraces.rotation, {
-            duration: 3,
-            y: -pos.x / 10
-        });
+        if(window.innerWidth > 600) {
+            gsap.to(this.pointLight.position, {
+                // duration: 3,
+                x: Math.abs(pos.x) < 1.6 ? pos.x : pos.x < 0 ? -1.6 : 1.6,
+                y: pos.y > 5.4 ? 5.4 : pos.y < 2.9 ? 2.9 : pos.y
+            })
+    
+            gsap.to(this.pointLight, {
+                // duration: 3,
+                intensity: ((1 - (Math.abs(this.pointLight.position.x) / 1.6)) * 1.5) + 0.5
+            })
+            
+            gsap.to(this.threegraces.rotation, {
+                duration: 3,
+                y: -pos.x / 10
+            });
+        }
     }
 
     parallax(e, threegraces) {
@@ -133,6 +138,24 @@ class Home_Hero_Section {
             duration: 0.7,
             y: (-2 * (e.offset.y / window.innerHeight)),
             z: (-2 * (e.offset.y / window.innerHeight))
+        });
+    }
+    
+    handleGracesResize() {
+        gsap.to(this.pointLight.position, {
+            // duration: 3,
+            x: 0,
+            y: 4
+        });
+
+        gsap.to(this.pointLight, {
+            // duration: 3,
+            intensity: 1
+        })
+        
+        gsap.to(this.threegraces.rotation, {
+            duration: 3,
+            y: 0
         });
     }
 }

@@ -76,8 +76,8 @@ class Home_Info_Section {
          window.addEventListener('resize', () =>
          {
              // Update sizes
-             this.sizes.width = window.innerWidth
-             this.sizes.height = window.innerHeight
+             this.sizes.width = document.querySelector(".info-section").clientWidth/2
+             this.sizes.height = document.querySelector(".info-section").clientHeight
  
              // Update camera
              this.camera.aspect = this.sizes.width / this.sizes.height

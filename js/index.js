@@ -27,3 +27,43 @@ document.querySelectorAll('.header .link.clickable').forEach(item => {
         console.log(document.querySelector(e.target.getAttribute('href')))
     })
 })
+
+const handleResize = (e) => {
+    if(window.screen.width * 0.06 > 50 && window.screen.width * 0.06 < 95){
+        gsap.to(".h5", {
+            duration: 0,
+            fontSize: window.screen.width * 0.02
+        });
+        gsap.to(".h1", {
+            duration: 0,
+            fontSize: window.screen.width * 0.06
+        });
+        gsap.to(".tab-data", {
+            duration: 0,
+            height: window.screen.width * 0.88,
+        })
+    }
+    else if (window.screen.width * 0.06 < 50){
+        gsap.to(".h5", {
+            duration: 0,
+            fontSize: 17
+        });
+        gsap.to(".h1", {
+            duration: 0,
+            fontSize: 50
+        });
+    }
+    else if (window.screen.width * 0.06 > 95){
+        gsap.to(".h5", {
+            duration: 0,
+            fontSize: 50
+        });
+        gsap.to(".h1", {
+            duration: 0,
+            fontSize: 95
+        });
+    }
+}
+
+window.addEventListener('resize', handleResize);
+handleResize();
