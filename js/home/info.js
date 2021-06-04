@@ -7,7 +7,7 @@ class Home_Info_Section {
         this.canvas = document.querySelector('canvas.home_info_scene')
         this.camera = new THREE.PerspectiveCamera(50, this.sizes.width / this.sizes.height, 0.1, 100);
         this.scene = new THREE.Scene();
-        this.pointLight = new THREE.PointLight(0xe0fffb, 2, 1.88, 1)
+        this.pointLight = new THREE.PointLight(0xe0fffb, 1, 1.88, 1)
         this.renderer = new THREE.WebGLRenderer({
             canvas: this.canvas,
             antialias: true

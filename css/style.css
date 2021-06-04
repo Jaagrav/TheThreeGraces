@@ -29,6 +29,60 @@ canvas
     z-index: -1;
 }
 
+.loader {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 9998;
+    max-width: unset;
+}
+
+.loading-content {
+    position: absolute;
+    margin: auto;
+    height: fit-content;
+    left: 0;bottom: 0;top: 0;right: 0;
+    max-width: unset;
+}
+
+.loader .content {
+    margin: auto;
+    height: fit-content;
+    left: 0;bottom: 0;top: 0;right: 0;
+    padding: 16px;
+}
+
+.loader .loading_holder {
+    margin: auto;
+    height: 2px;
+    width: 100%;
+    top: 0;bottom: 0;
+    background: #000;
+    max-width: unset;
+} 
+
+.loader .loading_percent {
+    margin: auto;
+    height: 2px;
+    width: 80%;
+    top: 0;bottom: 0;
+    background: #fff;
+    max-width: unset;
+}
+
+.loader .content .h1 {
+    font-family: 'Cinzel', sans-serif;
+}
+.loader .content .h5 {
+    font-family: 'Amiri', sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
 .body {
     margin: auto;
     max-width: unset;

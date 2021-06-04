@@ -30,6 +30,8 @@ class Home_Hero_Section {
         this.pointLight.visible = true;
         this.scene.add(this.pointLight);
         
+        window.addEventListener('mouseup', e => this.brighter(e, this.pointLight))
+        window.addEventListener('mousedown', e => this.brighter(e, this.pointLight))
         window.addEventListener('mousemove', e => this.clientMove(e, this.camera))
         window.addEventListener('touchmove', e => this.clientMove(e, this.camera))
         window.addEventListener('orientationchange', this.handleMobileOrientation)
@@ -94,7 +96,29 @@ class Home_Hero_Section {
             const obj = gltf.scene;
             this.threegraces = obj
             this.scene.add(obj);
+
+            gsap.to(".loader", {
+                opacity: 0,
+                pointerEvents: "none",
+            })
+        }, snap => {
+            gsap.to(".loading_percent", {
+                width: snap.loaded/snap.total * 100 + "%"
+            })
         })
+    }
+
+    brighter(e, pointLight) {
+        if(e.type === 'mouseup')
+            gsap.to(pointLight, {
+                // duration: 3,
+                intensity: pointLight.intensity - 2
+            })
+        else if(e.type === 'mousedown')
+            gsap.to(pointLight, {
+                // duration: 3,
+                intensity: pointLight.intensity + 2
+            })
     }
 
     clientMove(e, camera) {
@@ -115,7 +139,7 @@ class Home_Hero_Section {
         var distance = -camera.position.z / dir.z;
         var pos = camera.position.clone().add(dir.multiplyScalar(distance));
 
-        if(window.innerWidth > 600) {
+        if(window.innerWidth > 600 && this.threegraces) {
             gsap.to(this.pointLight.position, {
                 // duration: 3,
                 x: Math.abs(pos.x) < 1.6 ? pos.x : pos.x < 0 ? -1.6 : 1.6,
